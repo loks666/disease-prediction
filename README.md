@@ -55,3 +55,7 @@
 ### 结论
 
 疾病预测分析系统通过整合数据处理、机器学习和数据可视化技术，提供了一个强大的工具，帮助医疗机构提高疾病预防和治疗的效率。该系统的模块化设计和用户友好界面，使其具有很好的扩展性和易用性。
+
+conda create -n ill python=3.7.5
+conda activate ill
+pip install -r requirements.txt --proxy=http://127.0.0.1:7890
