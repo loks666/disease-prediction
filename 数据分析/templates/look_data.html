@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block pagewra %}
+    <!--page-wrapper-->
+    <div class="page-wrapper">
+        <!--page-content-wrapper-->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="user-profile-page">
+                    <div class="card radius-15">
+
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4 class="mb-0">搜索数据</h4>
+                            </div>
+                            <hr/>
+                            <div class="table-responsive">
+                                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>性别</th>
+                                        <th>年龄</th>
+                                        <th>高密度脂蛋白胆固醇</th>
+                                        <th>低密度脂蛋白胆固醇</th>
+                                        <th>极低密度脂蛋白胆固醇</th>
+                                        <th>甘油三酯</th>
+                                        <th>总胆固醇</th>
+                                        <th>脉搏</th>
+                                        <th>舒张压</th>
+                                        <th>高血压史</th>
+                                        <th>尿素氮</th>
+                                        <th>尿酸</th>
+                                        <th>肌酐</th>
+                                        <th>体重检查结果</th>
+                                        <th>是否糖尿病</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in data %}
+                                        <tr>
+                                            <th>{{ i.性别 }}</th>
+                                            <th>{{ i.年龄 }}</th>
+                                            <th>{{ i.高密度脂蛋白胆固醇 }}</th>
+                                            <th>{{ i.低密度脂蛋白胆固醇 }}</th>
+                                            <th>{{ i.极低密度脂蛋白胆固醇 }}</th>
+                                            <th>{{ i.甘油三酯 }}</th>
+                                            <th>{{ i.总胆固醇 }}</th>
+                                            <th>{{ i.脉搏 }}</th>
+                                            <th>{{ i.舒张压 }}</th>
+                                            <th>{{ i.高血压史 }}</th>
+                                            <th>{{ i.尿素氮 }}</th>
+                                            <th>{{ i.尿酸 }}</th>
+                                            <th>{{ i.肌酐 }}</th>
+                                            <th>{{ i.体重检查结果 }}</th>
+                                            <th>{{ i.是否糖尿病 }}</th>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/from/jquery.form.js"></script>
+{% endblock %}

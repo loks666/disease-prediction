@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block pagewra %}
+    <div class="page-wrapper">
+        <!--page-content-wrapper-->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="card radius-15">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>性别</label>
+                            <select class="single-select" id="a1">
+                                <option value="1">男</option>
+                                <option value="0">女</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>年龄</label>
+                                <input id="a2" type="number" class="form-control radius-30"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>高密度脂蛋白胆固醇</label>
+                                <input id="a3" type="text" class="form-control radius-30"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>低密度脂蛋白胆固醇</label>
+                                <input id="a4" type="number" class="form-control radius-30"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>极低密度脂蛋白胆固醇</label>
+                                <input id="a5" type="text" class="form-control radius-30"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>甘油三酯</label>
+                                <input id="a6" type="number" class="form-control radius-30"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>总胆固醇</label>
+                                <input id="a7" type="text" class="form-control radius-30"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>脉搏</label>
+                                <input id="a8" type="number" class="form-control radius-30"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>舒张压</label>
+                                <input id="a9" type="text" class="form-control radius-30"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>高血压史</label>
+                            <select class="single-select" id="a10">
+                                <option value="0">无高血压史</option>
+                                <option value="1">有高血压史</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>尿素氮</label>
+                                <input id="a11" type="number" class="form-control radius-30"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>尿酸</label>
+                                <input id="a12" type="text" class="form-control radius-30"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>肌酐</label>
+                                <input id="a13" type="number" class="form-control radius-30"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>体重检查结果</label>
+                                <select class="single-select" id="a14">
+                                    <option value="0">较瘦</option>
+                                    <option value="1">正常</option>
+                                    <option value="2">偏重</option>
+                                    <option value="3">肥胖</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="go()" class="btn btn-light m-1 btn-lg btn-block px-5">预测</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        function go() {
+            var a1 = document.getElementById('a1').value
+            var a2 = document.getElementById('a2').value
+            var a3 = document.getElementById('a3').value
+            var a4 = document.getElementById('a4').value
+            var a5 = document.getElementById('a5').value
+            var a6 = document.getElementById('a6').value
+            var a7 = document.getElementById('a7').value
+            var a8 = document.getElementById('a8').value
+            var a9 = document.getElementById('a9').value
+            var a10 = document.getElementById('a10').value
+            var a11 = document.getElementById('a11').value
+            var a12 = document.getElementById('a12').value
+            var a13 = document.getElementById('a13').value
+            var a14 = document.getElementById('a14').value
+            if (a14 === '' ||a1 === '' || a2 === '' || a3 === '' || a4 === '' || a5 === '' || a6 === '' || a7 === '' || a8 === '' || a9 === '' || a10 === '' || a11 === '' || a12 === '' || a13 === '') {
+                alert('请输入完整信息')
+            } else {
+                $.ajax({
+                    url: "yc",
+                    type: "post",
+                    data: {
+                        'a1': a1,
+                        'a2': a2,
+                        'a3': a3,
+                        'a4': a4,
+                        'a5': a5,
+                        'a6': a6,
+                        'a7': a7,
+                        'a8': a8,
+                        'a9': a9,
+                        'a10': a10,
+                        'a11': a11,
+                        'a12': a12,
+                        'a13': a13,
+                        'a14': a14
+                    },
+                    success(e) {
+                        alert(e)
+                    }
+                })
+            }
+        }
+    </script>
+{% endblock %}

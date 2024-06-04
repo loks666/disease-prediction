@@ -1,0 +1,435 @@
+{% extends 'base.html' %}
+{% block pagewra %}
+    <div class="page-wrapper">
+        <!--page-content-wrapper-->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">体重与患病关系</h2>
+                                    </div>
+                                </div>
+                                <div id="chart1" style="height: 400px"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-12">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">性别与患病关系</h2>
+                                    </div>
+                                </div>
+                                <div id="chart2" style="height: 400px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">年龄与患病关系</h2>
+                                    </div>
+                                </div>
+                                <div id="chart3" style="height: 500px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">高血压史与患病关系</h2>
+                                    </div>
+                                </div>
+                                <div id="chart4" style="height: 400px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">高密度脂蛋白胆固醇与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/高密度脂蛋白胆固醇分布.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">低密度脂蛋白胆固醇与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/低密度脂蛋白胆固醇.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">极低密度脂蛋白胆固醇与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/极低密度脂蛋白胆固醇.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">甘油三酯与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/甘油三酯.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">总胆固醇与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/总胆固醇.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">脉搏与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/脉搏.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">舒张压与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/舒张压.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">尿素氮与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/尿素氮.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">尿酸与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/尿酸.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="d-flex mb-2">
+                                    <div>
+                                        <h2 class="mb-0 text-white">肌酐与患病关系</h2>
+                                    </div>
+                                </div>
+                                <img src="../static/images/肌酐.png" alt="" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $.ajax({
+            url: "visualization",
+            type: "post",
+            success(e) {
+                data = JSON.parse(e)
+                var chartDom = document.getElementById('chart1');
+                var myChart = echarts.init(chartDom, 'light');
+                var option;
+                option = {
+                    color: ['#FF0087', '#FFBF00'],
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
+                            }
+                        }
+                    },
+                    legend: {
+                        textStyle: {
+                            color: "#fff"
+
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: data[0][0],
+                            axisLabel: {
+                                textStyle: {
+                                    color: "#fff"
+                                }
+                            }
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLabel: {
+                                textStyle: {
+                                    color: "#fff"
+                                }
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '患病',
+                            type: 'line',
+                            stack: 'Total',
+                            smooth: true,
+                            lineStyle: {
+                                width: 0
+                            },
+                            showSymbol: false,
+                            areaStyle: {
+                                opacity: 0.8,
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    {
+                                        offset: 0,
+                                        color: 'rgb(255, 0, 135)'
+                                    },
+                                    {
+                                        offset: 1,
+                                        color: 'rgb(135, 0, 157)'
+                                    }
+                                ])
+                            },
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: data[0][1]
+                        },
+                        {
+                            name: '健康',
+                            type: 'line',
+                            stack: 'Total',
+                            smooth: true,
+                            lineStyle: {
+                                width: 0
+                            },
+                            showSymbol: false,
+                            label: {
+                                show: true,
+                                position: 'top'
+                            },
+                            areaStyle: {
+                                opacity: 0.8,
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    {
+                                        offset: 0,
+                                        color: 'rgb(255, 191, 0)'
+                                    },
+                                    {
+                                        offset: 1,
+                                        color: 'rgb(224, 62, 76)'
+                                    }
+                                ])
+                            },
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: data[0][2]
+                        }
+                    ]
+                };
+                option && myChart.setOption(option);
+
+
+                var chartDom1 = document.getElementById('chart2');
+                var myChart1 = echarts.init(chartDom1, 'light');
+                var option1;
+                option1 = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    series: [
+                        {
+                            name: '男性',
+                            type: 'pie',
+                            center: ['25%', '50%'],
+                            data: data[1][0],
+                            axisLabel: {
+                                textStyle: {
+                                    color: "#fff"
+                                }
+                            }
+                        },
+                        {
+                            name: '女性',
+                            type: 'pie',
+                            center: ['75%', '50%'],
+                            data: data[1][1]
+                        }
+                    ]
+                };
+                option1 && myChart1.setOption(option1);
+
+
+                var chartDom2 = document.getElementById('chart3');
+                var myChart2 = echarts.init(chartDom2, 'light');
+                var option2;
+                option2 = {
+                    tooltip: {},
+                    xAxis: {
+                        name: "年龄",
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }, nameTextStyle: {
+                            color: 'white',  // 设置 x 轴名称颜色为白色
+                        }
+                    },
+                    yAxis: {
+                        name: "人数",
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }, nameTextStyle: {
+                            color: 'white',  // 设置 x 轴名称颜色为白色
+                        }
+                    },
+                    series: [
+                        {
+                            name: '患病',
+                            symbolSize: 20,
+                            data: data[2][0],
+                            type: 'scatter'
+                        },
+                        {
+                            name: '健康',
+                            symbolSize: 20,
+                            data: data[2][1],
+                            type: 'scatter'
+                        }
+                    ]
+                };
+                option2 && myChart2.setOption(option2);
+
+                var chartDom3 = document.getElementById('chart4');
+                var myChart3 = echarts.init(chartDom3, 'light');
+                var option3;
+                option3 = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                    legend: {textStyle: {
+                                color: "#fff"
+                            }},
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'value',
+                        boundaryGap: [0, 0.01],
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: ['患病', '健康'],
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '有高血压史',
+                            type: 'bar',
+                            data: data[3][0],
+                        },
+                        {
+                            name: '无高血压史',
+                            type: 'bar',
+                            data: data[3][1],
+                        }
+                    ]
+                };
+                option3 && myChart3.setOption(option3);
+            }
+        })
+
+    </script>
+{% endblock %}

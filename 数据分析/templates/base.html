@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>可视化系统</title>
+    {#    <!--favicon-->#}
+    {#    <link href="../static/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>#}
+    {#    <link href="../static/assets/plugins/select2/css/select2.min.css" rel="stylesheet" />#}
+    {#    <link href="../static/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>#}
+    {#    <link href="../static/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet"/>#}
+    {#    <link href="../static/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet"/>#}
+    {#    <link href="../static/assets/css/pace.min.css" rel="stylesheet"/>#}
+    {#    <script src="../static/assets/js/pace.min.js"></script>#}
+    {#    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css"/>#}
+    {#    <link rel="stylesheet" href="../static/assets/css/icons.css"/>#}
+    {#    <link rel="stylesheet" href="../static/assets/css/app.css"/>#}
+
+    <meta name="referrer" content="no-referrer">
+    <link href="../static/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+    <link href="../static/assets/plugins/select2/css/select2.min.css" rel="stylesheet"/>
+    <link href="../static/assets/plugins/select2/css/select2-bootstrap4.css" rel="stylesheet"/>
+    <link href="../static/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet"/>
+    <link href="../static/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet"/>
+    <link href="../static/assets/css/pace.min.css" rel="stylesheet"/>
+    <script src="../static/assets/js/pace.min.js"></script>
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/assets/css/icons.css"/>
+    <link rel="stylesheet" href="../static/assets/css/app.css"/>
+
+</head>
+
+<body class="bg-theme bg-theme1">
+<!-- wrapper -->
+<div class="wrapper">
+    <!--sidebar-wrapper-->
+    <div class="sidebar-wrapper" data-simplebar="true">
+        <div class="sidebar-header">
+
+            <div>
+                <h4 class="logo-text">患病风险</h4>
+            </div>
+            <a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
+            </a>
+        </div>
+        <!--navigation-->
+        <ul class="metismenu" id="menu">
+            <li><a href="/look_data">查看数据</a></li>
+            <li><a href="/visualization">数据可视化</a></li>
+            <li><a href="/yc">预测风险</a></li>
+            <li><a href="/echarts" target="_blank">可视化大屏</a></li>
+            <li><a href="/">退出</a></li>
+        </ul>
+        <!--end navigation-->
+    </div>
+    <!--end sidebar-wrapper-->
+    <!--header-->
+    <header class="top-header">
+        <nav class="navbar navbar-expand">
+            <div class="left-topbar d-flex align-items-center">
+                <a href="javascript:;" class="toggle-btn"> <i class="bx bx-menu"></i>
+                </a>
+            </div>
+            <div class="flex-grow-1 search-bar">
+                <div class="input-group">
+                    <div class="input-group-prepend search-arrow-back">
+                    </div>
+                    <div class="input-group-append">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--end header-->
+    <!--page-wrapper-->
+    {% block pagewra %}
+    {% endblock %}
+    <!--end page-wrapper-->
+    <!--start overlay-->
+    <div class="overlay toggle-btn-mobile"></div>
+    <!--end overlay-->
+    <!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+    <!--End Back To Top Button-->
+
+</div>
+<!--start switcher-->
+<div class="switcher-wrapper">
+    <div class="switcher-btn"><i class='bx bx-cog bx-spin'></i>
+    </div>
+    <div class="switcher-body">
+        <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
+        <hr/>
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+            <li id="theme1"></li>
+            <li id="theme2"></li>
+            <li id="theme3"></li>
+            <li id="theme4"></li>
+            <li id="theme5"></li>
+            <li id="theme6"></li>
+        </ul>
+        <hr>
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+            <li id="theme7"></li>
+            <li id="theme8"></li>
+            <li id="theme9"></li>
+            <li id="theme10"></li>
+            <li id="theme11"></li>
+            <li id="theme12"></li>
+        </ul>
+    </div>
+</div>
+<!--end switcher-->
+<!-- JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../static/assets/js/jquery.min.js"></script>
+<script src="../static/assets/js/popper.min.js"></script>
+<script src="../static/assets/js/bootstrap.min.js"></script>
+<!--plugins-->
+<script src="../static/assets/plugins/simplebar/js/simplebar.min.js"></script>
+<script src="../static/assets/plugins/metismenu/js/metisMenu.min.js"></script>
+<script src="../static/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+<!-- Vector map JavaScript -->
+<script src="../static/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="../static/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="../static/assets/plugins/vectormap/jquery-jvectormap-in-mill.js"></script>
+<script src="../static/assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
+<script src="../static/assets/plugins/vectormap/jquery-jvectormap-uk-mill-en.js"></script>
+<script src="../static/assets/plugins/vectormap/jquery-jvectormap-au-mill.js"></script>
+<!-- App JS -->
+<script src="../static/assets/js/app.js"></script>
+<script src="../static/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+
+<script src="../static/assets/plugins/select2/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //Default data table
+        $('#example').DataTable();
+        $('#example1').DataTable();
+    });
+
+</script>
+<script>
+    $('.single-select').select2({
+        theme: 'bootstrap4',
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        allowClear: Boolean($(this).data('allow-clear')),
+    });
+    $('.multiple-select').select2({
+        theme: 'bootstrap4',
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        allowClear: Boolean($(this).data('allow-clear')),
+    });
+</script>
+</body>
+
+</html>

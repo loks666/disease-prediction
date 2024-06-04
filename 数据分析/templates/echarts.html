@@ -1,0 +1,339 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="../static/js/jquery.js"></script>
+    <link rel="stylesheet" href="../static/css/comon0.css">
+</head>
+<body>
+<div class="loading">
+    <div class="loadbox"><img src="../static/images/loading.gif"> 页面加载中...</div>
+</div>
+<div class="head">
+    <h1>可视化大屏</h1>
+    <div class="time" id="showTime">2024/04/05 16:16:54</div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);//開始运行
+        function time() {
+            clearTimeout(t);//清除定时器
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();//获取时
+            var m = dt.getMinutes();//获取分
+            var s = dt.getSeconds();//获取秒
+            var t = null;
+            document.getElementById("showTime").innerHTML = y + "/" + Appendzero(mt) + "/" + Appendzero(day) + " " + Appendzero(h) + ":" + Appendzero(m) + ":" + Appendzero(s) + "";
+
+            function Appendzero(obj) {
+                if (obj < 10) return "0" + "" + obj;
+                else return obj;
+            }
+
+            t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+
+    </script>
+
+</div>
+
+<script type="text/javascript" src="../static/echarts/js/echarts.min.js"></script>
+<div class="mainbox">
+    <ul class="clearfix">
+        <li>
+
+            <div class="boxall" style="height: 50%">
+                <div class="alltitle">体重分析</div>
+                <div class=" boxnav " id="chart1" style="width: 100%;height: 80%">
+                </div>
+            </div>
+            <div class="boxall" style="height: 50%">
+                <div class="alltitle">性别分析</div>
+                <div class="boxnav" id="chart2" style="width: 100%;height: 80%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="boxall" style="height: 50%">
+                <div class="alltitle">算法评估</div>
+                <div class="boxnav">
+                    <img src="../static/images/result.png" alt="" style="width: 100%;height: 100%">
+                </div>
+            </div>
+            <div class="boxall" style="height: 50%">
+                <div class="alltitle">年龄分析</div>
+                <div class="boxnav" id="chart3" style="width: 100%;height: 80%"></div>
+            </div>
+
+        </li>
+        <li>
+
+            <div class="boxall" style="height: 50%">
+
+                <div class="alltitle">高血压史</div>
+                <div class="boxnav" id="chart4" style="width: 100%;height: 80%"></div>
+            </div>
+            <div class="boxall" style="height: 50%">
+                <div class="alltitle">血压分析</div>
+                <div class="boxnav" style="width: 100%;height: 80%">
+                    <img src="../static/images/舒张压.png" alt="" style="width: 100%;height: 100%">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script language="JavaScript" src="../static/js/js.js"></script>
+<script src="../static/assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $.ajax({
+        url: "echarts",
+        type: "post",
+        success(e) {
+            data = JSON.parse(e)
+            var chartDom = document.getElementById('chart1');
+            var myChart = echarts.init(chartDom, 'light');
+            var option;
+            option = {
+                color: ['#FF0087', '#FFBF00'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#6a7985'
+                        }
+                    }
+                },
+                legend: {
+                    textStyle: {
+                        color: "#fff"
+
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: data[0][0],
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '患病',
+                        type: 'line',
+                        stack: 'Total',
+                        smooth: true,
+                        lineStyle: {
+                            width: 0
+                        },
+                        showSymbol: false,
+                        areaStyle: {
+                            opacity: 0.8,
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {
+                                    offset: 0,
+                                    color: 'rgb(255, 0, 135)'
+                                },
+                                {
+                                    offset: 1,
+                                    color: 'rgb(135, 0, 157)'
+                                }
+                            ])
+                        },
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: data[0][1]
+                    },
+                    {
+                        name: '健康',
+                        type: 'line',
+                        stack: 'Total',
+                        smooth: true,
+                        lineStyle: {
+                            width: 0
+                        },
+                        showSymbol: false,
+                        label: {
+                            show: true,
+                            position: 'top'
+                        },
+                        areaStyle: {
+                            opacity: 0.8,
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {
+                                    offset: 0,
+                                    color: 'rgb(255, 191, 0)'
+                                },
+                                {
+                                    offset: 1,
+                                    color: 'rgb(224, 62, 76)'
+                                }
+                            ])
+                        },
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: data[0][2]
+                    }
+                ]
+            };
+            option && myChart.setOption(option);
+
+
+            var chartDom1 = document.getElementById('chart2');
+            var myChart1 = echarts.init(chartDom1, 'light');
+            var option1;
+            option1 = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                series: [
+                    {
+                        name: '男性',
+                        type: 'pie',
+                        center: ['25%', '50%'],
+                        data: data[1][0],
+                        axisLabel: {
+                            textStyle: {
+                                color: "#fff"
+                            }
+                        }
+                    },
+                    {
+                        name: '女性',
+                        type: 'pie',
+                        center: ['75%', '50%'],
+                        data: data[1][1]
+                    }
+                ]
+            };
+            option1 && myChart1.setOption(option1);
+
+
+            var chartDom2 = document.getElementById('chart3');
+            var myChart2 = echarts.init(chartDom2, 'light');
+            var option2;
+            option2 = {
+                tooltip: {},
+                xAxis: {
+                    name: "年龄",
+                    axisLabel: {
+                        textStyle: {
+                            color: "#fff"
+                        }
+                    }, nameTextStyle: {
+                        color: 'white',  // 设置 x 轴名称颜色为白色
+                    }
+                },
+                yAxis: {
+                    name: "人数",
+                    axisLabel: {
+                        textStyle: {
+                            color: "#fff"
+                        }
+                    }, nameTextStyle: {
+                        color: 'white',  // 设置 x 轴名称颜色为白色
+                    }
+                },
+                series: [
+                    {
+                        name: '患病',
+                        symbolSize: 20,
+                        data: data[2][0],
+                        type: 'scatter'
+                    },
+                    {
+                        name: '健康',
+                        symbolSize: 20,
+                        data: data[2][1],
+                        type: 'scatter'
+                    }
+                ]
+            };
+            option2 && myChart2.setOption(option2);
+
+            var chartDom3 = document.getElementById('chart4');
+            var myChart3 = echarts.init(chartDom3, 'light');
+            var option3;
+            option3 = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    textStyle: {
+                        color: "#fff"
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01],
+                    axisLabel: {
+                        textStyle: {
+                            color: "#fff"
+                        }
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['患病', '健康'],
+                    axisLabel: {
+                        textStyle: {
+                            color: "#fff"
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '有高血压史',
+                        type: 'bar',
+                        data: data[3][0],
+                    },
+                    {
+                        name: '无高血压史',
+                        type: 'bar',
+                        data: data[3][1],
+                    }
+                ]
+            };
+            option3 && myChart3.setOption(option3);
+        }
+    })
+
+</script>
+</body>
+</html>
